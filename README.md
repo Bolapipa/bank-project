@@ -50,7 +50,7 @@ Este projeto tem como objetivo ensinar e praticar:
 ---
 
 <img src="https://img.icons8.com/color/96/000000/money.png" width="80"/>  
-*Feito com 💙 para estudos e aprendizado!*
+*Feito para estudos e aprendizado!*
 
 ## Contribuições
 
