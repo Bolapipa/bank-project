@@ -1,6 +1,8 @@
-# 💸 Bank Project
+# Bank Project
 
 <img src="https://img.icons8.com/color/96/000000/bank.png" align="right" width="120"/>
+
+## 📝 O que este projeto faz?
 
 Bem-vindo ao **Bank Project**!  
 Este projeto é um sistema bancário didático, desenvolvido em Python, que simula as principais operações de uma conta corrente.  
@@ -18,37 +20,25 @@ Ao executar o programa, você terá acesso a um menu interativo onde poderá:
 
 Todas as operações são acompanhadas de mensagens explicativas, tornando o uso fácil e intuitivo mesmo para quem nunca programou antes.
 
-## 🚀 Funcionalidades
+O menu interativo facilita o uso, apresentando opções claras para cada funcionalidade. O código foi desenvolvido para ajudar iniciantes a praticar conceitos fundamentais da programação, como lógica condicional, funções, manipulação de dados e interação com o usuário. Além disso, o projeto segue boas práticas de organização e clareza, tornando-o ideal para estudos e aprimoramento dos conhecimentos em Python.
 
-- **Depósito:** Adicione dinheiro à sua conta.
-- **Saque:** Retire dinheiro, respeitando o limite por saque.
-- **Extrato:** Veja o histórico de movimentações.
-- **Visualizar saldo:** Consulte seu saldo atual.
-- **Interface amigável:** Menu interativo e mensagens claras.
+## Funcionalidades
 
-## 📋 Como usar
+- Depósitos
+- Saques
+- Consulta de saldo
+- Histórico de movimentações
 
-1. Clone este repositório:
-   ```
-   git clone https://github.com/seu-usuario/bank-project.git
-   ```
-2. Execute o arquivo principal:
-   ```
-   python bank_code.py
-   ```
+## Tecnologias utilizadas
 
-## 🖼️ Exemplo do menu
+- Python
 
-```
-💰 [d] Depositar
-💸 [s] Sacar
-📄 [e] Extrato
-👀 [v] Visualizar saldo
-❌ [q] Sair
-=> 
-```
+## Como executar o projeto
 
-## 🎯 Objetivo
+1. Clone o repositório
+2. Execute o arquivo principal
+
+## Objetivos de aprendizado
 
 Este projeto tem como objetivo ensinar e praticar:
 - Estruturas de decisão e repetição
@@ -62,3 +52,6 @@ Este projeto tem como objetivo ensinar e praticar:
 <img src="https://img.icons8.com/color/96/000000/money.png" width="80"/>  
 *Feito com 💙 para estudos e aprendizado!*
 
+## Contribuições
+
+Sinta-se à vontade para contribuir com o projeto!
