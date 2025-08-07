@@ -1,3 +1,5 @@
+from datetime import datetime, date
+
 def mostrar_menu():
     menu = """
 💰 [d] Depositar
@@ -16,8 +18,9 @@ def depositar(saldo, extrato):
         return saldo, extrato
 
     if valor > 0:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         saldo += valor
-        extrato += f"Depósito: R$ {valor:.2f}\n"
+        extrato += f"{timestamp} - Depósito: R$ {valor:.2f}\n"
     else:
         print("Operação falhou! O valor informado é inválido.")
     return saldo, extrato
@@ -37,8 +40,9 @@ def sacar(saldo, extrato, numero_saques, limite):
     elif excedeu_limite:
         print(f"Operação falhou! O limite por saque é R$ {limite:.2f}.")
     elif valor > 0:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         saldo -= valor
-        extrato += f"Saque: R$ {valor:.2f}\n"
+        extrato += f"{timestamp} - Saque: R$ {valor:.2f}\n"
         numero_saques += 1
     else:
         print("Operação falhou! O valor informado é inválido.")
@@ -59,20 +63,47 @@ def main():
     extrato = ""
     numero_saques = 0
 
+    # Novo: controle de transações diárias
+    numero_transacoes_dia = 0
+    data_contagem = date.today()
+
     while True:
+        # Reset diário, se necessário
+        hoje = date.today()
+        if hoje != data_contagem:
+            numero_transacoes_dia = 0
+            data_contagem = hoje
+
         opcao = mostrar_menu()
 
         if opcao == "d":
-            saldo, extrato = depositar(saldo, extrato)
+            if numero_transacoes_dia >= 10:
+                print("Operação falhou! Você excedeu o número de transações permitidas para hoje (10).")
+            else:
+                extrato_pre = extrato
+                saldo, extrato = depositar(saldo, extrato)
+                if extrato != extrato_pre:
+                    numero_transacoes_dia += 1
+
         elif opcao == "s":
-            saldo, extrato, numero_saques = sacar(saldo, extrato, numero_saques, limite)
+            if numero_transacoes_dia >= 10:
+                print("Operação falhou! Você excedeu o número de transações permitidas para hoje (10).")
+            else:
+                extrato_pre = extrato
+                saldo, extrato, numero_saques = sacar(saldo, extrato, numero_saques, limite)
+                if extrato != extrato_pre:
+                    numero_transacoes_dia += 1
+
         elif opcao == "e":
             mostrar_extrato(saldo, extrato)
+
         elif opcao == "v":
             mostrar_saldo(saldo)
+
         elif opcao == "q":
             print("\nObrigado por utilizar nosso sistema bancário! 😊")
             break
+
         else:
             print("Operação inválida, por favor selecione novamente a operação desejada.")
 
