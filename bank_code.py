@@ -25,6 +25,8 @@ ICON_DEPOSIT = "💰"
 ICON_WITHDRAW = "💸"
 ICON_PIX = "⚡"
 ICON_MENU = "✨"
+ICON_EXTRATO = "📄"
+ICON_SALDO = "👀"
 
 # Fuso horário Brasil/São Paulo
 TZ = pytz.timezone("America/Sao_Paulo")
@@ -36,11 +38,11 @@ def mostrar_menu_transacoes():
 {ICON_DEPOSIT} [d] Depositar
 {ICON_WITHDRAW} [s] Saque
 {ICON_PIX} [p] Pix
-📄 [e] Extrato
-👀 [v] Saldo
+{ICON_EXTRATO} [e] Extrato
+{ICON_SALDO} [v] Saldo
 {ICON_EXIT} [q] Sair
 🚀 Escolha: """
-    return input(menu)
+    return input(menu).lower()  # normaliza para minúsculas
 
 
 def autenticar(usuario):
@@ -282,8 +284,9 @@ def main():
             "extrato": extrato,
             "numero_saques": numero_saques,
             "numero_transacoes_dia": numero_transacoes_dia,
-                "data_contagem": data_contagem
-            })
+            "data_contagem": data_contagem
+        })
+
 
 if __name__ == "__main__":
     main()
