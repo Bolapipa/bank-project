@@ -1,57 +1,118 @@
-# Bank Project
-
+Bank Project
 <img src="https://img.icons8.com/color/96/000000/bank.png" align="right" width="120"/>
+📝 O que este projeto faz?
+Bem-vindo ao Bank Project!
+Este projeto é um sistema bancário didático em Python, criado para simular as principais operações de uma conta corrente via terminal, com foco em conceitos de lógica, funções, manipulação de dados e boas práticas de código.
 
-## 📝 O que este projeto faz?
+🔄 Atualizações e Novas Funcionalidades
+Nas últimas versões do código, incorporamos:
 
-Bem-vindo ao **Bank Project**!  
-Este projeto é um sistema bancário didático, desenvolvido em Python, que simula as principais operações de uma conta corrente.  
-Ele foi criado para ajudar iniciantes a entender conceitos fundamentais de programação, como estruturas de decisão, funções, manipulação de dados e interação com o usuário via terminal.
+Cadastro e Login de Usuário
 
-## 📝 O que o código faz?
+Registro por CPF (11 dígitos, sem traços) e senha numérica (mínimo 4 dígitos).
 
-Ao executar o programa, você terá acesso a um menu interativo onde poderá:
+Validação de CPF único: não permite duplicar contas no sistema.
 
-- **Depositar:** Inserir valores positivos para aumentar o saldo da conta. O sistema valida a entrada e registra cada depósito no extrato.
-- **Sacar:** Retirar dinheiro da conta, respeitando o limite máximo por saque. O código verifica se há saldo suficiente e se o valor está dentro do limite permitido, garantindo segurança nas operações.
-- **Visualizar saldo:** Consultar rapidamente o saldo atual da conta, com apresentação clara e objetiva.
-- **Extrato:** Visualizar o histórico completo de todas as movimentações (depósitos e saques), permitindo acompanhar o fluxo financeiro da conta.
-- **Sair:** Encerrar o programa de forma segura.
+Tela de login obrigatória antes de acessar as demais operações.
 
-Todas as operações são acompanhadas de mensagens explicativas, tornando o uso fácil e intuitivo mesmo para quem nunca programou antes.
+Menu Case-Insensitive
 
-O menu interativo facilita o uso, apresentando opções claras para cada funcionalidade. O código foi desenvolvido para ajudar iniciantes a praticar conceitos fundamentais da programação, como lógica condicional, funções, manipulação de dados e interação com o usuário. Além disso, o projeto segue boas práticas de organização e clareza, tornando-o ideal para estudos e aprimoramento dos conhecimentos em Python.
+Agora o terminal aceita comandos em letras maiúsculas e minúsculas, sem distinção.
 
-## Funcionalidades
+Segurança com Senha em Operações Sensíveis
 
-- Depósitos
-- Saques
-- Consulta de saldo
-- Histórico de movimentações
+A cada depósito, saque ou PIX, o sistema solicita confirmação de senha.
 
-## Tecnologias utilizadas
+Funcionalidade PIX (⚡)
 
-- Python
+Transferências entre contas cadastradas.
 
-## Como executar o projeto
+Não permite enviar PIX para o próprio CPF.
 
-1. Clone o repositório
-2. Execute o arquivo principal
+Limite de valor: até R$ 500,00 (com restrição de horário após as 23:59 – fuso “America/Sao_Paulo” via pytz).
 
-## Objetivos de aprendizado
+Limite Diário de Transações
 
-Este projeto tem como objetivo ensinar e praticar:
-- Estruturas de decisão e repetição
-- Funções em Python
-- Manipulação de entradas do usuário
-- Boas práticas de código
-- Simulação de operações bancárias reais
+Máximo de 10 transações (depósitos, saques e PIX) por dia.
 
----
+Ao atingir o limite, novas operações são bloqueadas até a virada do dia.
 
-<img src="https://img.icons8.com/color/96/000000/money.png" width="80"/>  
-*Feito para estudos e aprendizado!*
+Extrato Detalhado com Data e Hora
 
-## Contribuições
+Cada movimentação exibe data e hora no formato DD/MM/YYYY HH:MM:SS.
 
-Sinta-se à vontade para contribuir com o projeto!
+Fuso horário configurado para São Paulo (America/Sao_Paulo).
+
+Melhoria Visual no Terminal
+
+Ícones amigáveis para cada opção:
+
+💰 [d] Depositar
+
+💸 [s] Sacar
+
+⚡ [p] PIX
+
+👀 [v] Saldo
+
+📄 [e] Extrato
+
+🔑 [l] Login/Cadastro
+
+❌ [q] Sair
+
+Mensagens de sucesso e erro com ícones (✅, ❌) e textos mais descritivos.
+
+Funcionalidades
+✅ Cadastro e Login de usuários por CPF e senha
+
+💰 Depósitos com validação de valor e confirmação de senha
+
+💸 Saques respeitando saldo e limite, com confirmação de senha
+
+⚡ PIX entre contas, sem enviar para si mesmo, limite de R$ 500,00 após 23:59, confirmação de senha
+
+👀 Consulta de Saldo a qualquer momento
+
+📄 Extrato com histórico completo e timestamps
+
+🔒 Segurança reforçada: senha em operações sensíveis
+
+🚫 Limite Diário de 10 transações por conta
+
+Tecnologias utilizadas
+Python 3.x
+
+Biblioteca pytz (fuso horário “America/Sao_Paulo”)
+
+Como executar o projeto
+Clone este repositório.
+
+Instale dependências (separadas):
+
+bash
+Copiar
+Editar
+pip install pytz
+Execute:
+
+bash
+Copiar
+Editar
+python bank.py
+No menu inicial, cadastre um novo usuário ou faça login com CPF e senha.
+
+Utilize as opções para operar sua conta.
+
+Objetivos de aprendizado
+Praticar estruturas de decisão e repetição em Python
+
+Criar e modularizar funções
+
+Tratar validação de entradas e erros
+
+Implementar autenticação básica e segurança
+
+Simular operações bancárias reais e restrições (PIX, limite de transações)
+
+<img src="https://img.icons8.com/color/96/000000/money.png" width="80"/> *Feito para estudos e aprendizado!*
