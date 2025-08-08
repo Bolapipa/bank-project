@@ -1,118 +1,236 @@
-Bank Project
-<img src="https://img.icons8.com/color/96/000000/bank.png" align="right" width="120"/>
-📝 O que este projeto faz?
-Bem-vindo ao Bank Project!
-Este projeto é um sistema bancário didático em Python, criado para simular as principais operações de uma conta corrente via terminal, com foco em conceitos de lógica, funções, manipulação de dados e boas práticas de código.
+# Sistema Bancário Python - Versão Melhorada
 
-🔄 Atualizações e Novas Funcionalidades
-Nas últimas versões do código, incorporamos:
+## 🚀 Melhorias Implementadas
 
-Cadastro e Login de Usuário
+### 1. **Validação de CPF**
+- Implementação do algoritmo oficial brasileiro de validação de CPF
+- Verificação de dígitos verificadores
+- Prevenção de CPFs com todos os dígitos iguais
 
-Registro por CPF (11 dígitos, sem traços) e senha numérica (mínimo 4 dígitos).
+### 2. **Persistência de Dados**
+- Salvamento automático em arquivo JSON (`bank_data.json`)
+- Carregamento automático dos dados ao iniciar o sistema
+- Preservação de todas as informações entre sessões
 
-Validação de CPF único: não permite duplicar contas no sistema.
+### 3. **Novas Funcionalidades**
 
-Tela de login obrigatória antes de acessar as demais operações.
+#### 📧 **Cadastro Completo**
+- Nome completo do usuário
+- Validação de email
+- Validação de telefone brasileiro
+- Confirmação de senha
 
-Menu Case-Insensitive
+#### 🔄 **Transferência entre Contas**
+- Nova opção de transferência além do PIX
+- Validação de CPF destinatário
+- Atualização automática do saldo do destinatário
 
-Agora o terminal aceita comandos em letras maiúsculas e minúsculas, sem distinção.
+#### 📊 **Histórico Detalhado**
+- Informações completas da conta
+- Estatísticas de uso
+- Data de cadastro e última atualização
 
-Segurança com Senha em Operações Sensíveis
+#### ⚙️ **Configurações da Conta**
+- Alteração de senha
+- Atualização de email
+- Modificação de telefone
 
-A cada depósito, saque ou PIX, o sistema solicita confirmação de senha.
+### 4. **Melhorias de Segurança**
 
-Funcionalidade PIX (⚡)
+#### 🔐 **Autenticação Aprimorada**
+- Limite de tentativas de senha (3 tentativas)
+- Feedback sobre tentativas restantes
+- Verificação de status da conta (ativo/bloqueado)
 
-Transferências entre contas cadastradas.
+#### 🛡️ **Validações Robustas**
+- Validação de email com regex
+- Validação de telefone brasileiro
+- Verificação de CPF existente no sistema
 
-Não permite enviar PIX para o próprio CPF.
+### 5. **Organização e Código**
 
-Limite de valor: até R$ 500,00 (com restrição de horário após as 23:59 – fuso “America/Sao_Paulo” via pytz).
+#### 📝 **Type Hints**
+- Adição de type hints em todas as funções
+- Melhor documentação do código
+- Facilita manutenção e debugging
 
-Limite Diário de Transações
+#### 🏗️ **Constantes Configuráveis**
+```python
+LIMITE_SAQUE = 500.0
+LIMITE_SAQUES_DIARIOS = 3
+LIMITE_TRANSACOES_DIARIAS = 10
+LIMITE_PIX_NOTURNO = 500.0
+```
 
-Máximo de 10 transações (depósitos, saques e PIX) por dia.
+#### 📚 **Documentação**
+- Docstrings em todas as funções
+- Comentários explicativos
+- Estrutura modular
 
-Ao atingir o limite, novas operações são bloqueadas até a virada do dia.
+### 6. **Interface Melhorada**
 
-Extrato Detalhado com Data e Hora
+#### 🎨 **Novos Ícones**
+- Ícones para todas as funcionalidades
+- Interface mais intuitiva
+- Feedback visual aprimorado
 
-Cada movimentação exibe data e hora no formato DD/MM/YYYY HH:MM:SS.
-
-Fuso horário configurado para São Paulo (America/Sao_Paulo).
-
-Melhoria Visual no Terminal
-
-Ícones amigáveis para cada opção:
-
+#### 📋 **Menu Expandido**
+```
+✨─── Operações Bancárias ───✨
 💰 [d] Depositar
-
-💸 [s] Sacar
-
-⚡ [p] PIX
-
-👀 [v] Saldo
-
+💸 [s] Saque
+⚡ [p] Pix
+🔄 [t] Transferência
 📄 [e] Extrato
-
-🔑 [l] Login/Cadastro
-
+👀 [v] Saldo
+📊 [h] Histórico
+⚙️ [c] Configurações
 ❌ [q] Sair
+```
 
-Mensagens de sucesso e erro com ícones (✅, ❌) e textos mais descritivos.
+### 7. **Funcionalidades Avançadas**
 
-Funcionalidades
-✅ Cadastro e Login de usuários por CPF e senha
+#### 💾 **Persistência Inteligente**
+- Salvamento automático ao sair
+- Carregamento automático ao iniciar
+- Tratamento de erros de I/O
 
-💰 Depósitos com validação de valor e confirmação de senha
+#### 🔄 **Transferências Reais**
+- PIX e Transferência atualizam saldo do destinatário
+- Registro em ambas as contas
+- Validação de existência do destinatário
 
-💸 Saques respeitando saldo e limite, com confirmação de senha
+#### 📈 **Controle de Limites**
+- Limite de 3 saques diários
+- Limite de 10 transações diárias
+- Limite de PIX noturno (após 23:59)
 
-⚡ PIX entre contas, sem enviar para si mesmo, limite de R$ 500,00 após 23:59, confirmação de senha
+## 🛠️ Como Usar
 
-👀 Consulta de Saldo a qualquer momento
-
-📄 Extrato com histórico completo e timestamps
-
-🔒 Segurança reforçada: senha em operações sensíveis
-
-🚫 Limite Diário de 10 transações por conta
-
-Tecnologias utilizadas
-Python 3.x
-
-Biblioteca pytz (fuso horário “America/Sao_Paulo”)
-
-Como executar o projeto
-Clone este repositório.
-
-Instale dependências (separadas):
-
-bash
-Copiar
-Editar
+### Instalação
+```bash
+# Instalar dependências
 pip install pytz
-Execute:
 
-bash
-Copiar
-Editar
-python bank.py
-No menu inicial, cadastre um novo usuário ou faça login com CPF e senha.
+# Executar o sistema
+python bank_code.py
+```
 
-Utilize as opções para operar sua conta.
+### Primeiro Uso
+1. Escolha `[c]` para cadastro
+2. Preencha todos os dados solicitados
+3. Faça login com `[l]`
+4. Explore as funcionalidades disponíveis
 
-Objetivos de aprendizado
-Praticar estruturas de decisão e repetição em Python
+### Funcionalidades Principais
 
-Criar e modularizar funções
+#### 💰 **Depósito**
+- Valor positivo obrigatório
+- Autenticação por senha
+- Registro no extrato
 
-Tratar validação de entradas e erros
+#### 💸 **Saque**
+- Limite de R$ 500 por saque
+- Máximo 3 saques diários
+- Verificação de saldo
 
-Implementar autenticação básica e segurança
+#### ⚡ **PIX**
+- Validação de CPF destinatário
+- Limite noturno (R$ 500 após 23:59)
+- Transferência automática entre contas
 
-Simular operações bancárias reais e restrições (PIX, limite de transações)
+#### 🔄 **Transferência**
+- Nova funcionalidade
+- Mesmas validações do PIX
+- Sem limite noturno
 
-<img src="https://img.icons8.com/color/96/000000/money.png" width="80"/> *Feito para estudos e aprendizado!*
+#### 📄 **Extrato**
+- Histórico completo de transações
+- Saldo atualizado
+- Formatação clara
+
+#### 📊 **Histórico**
+- Informações pessoais
+- Estatísticas de uso
+- Data de cadastro
+
+#### ⚙️ **Configurações**
+- Alteração de senha
+- Atualização de dados pessoais
+- Validação de novos dados
+
+## 🔧 Configurações
+
+### Limites Configuráveis
+```python
+LIMITE_SAQUE = 500.0              # Limite por saque
+LIMITE_SAQUES_DIARIOS = 3         # Máximo saques por dia
+LIMITE_TRANSACOES_DIARIAS = 10    # Máximo transações por dia
+LIMITE_PIX_NOTURNO = 500.0        # Limite PIX após 23:59
+```
+
+### Arquivo de Dados
+- `bank_data.json`: Armazena todos os dados dos usuários
+- Formato JSON legível
+- Backup automático
+
+## 🚨 Segurança
+
+### Validações Implementadas
+- ✅ CPF válido (algoritmo oficial)
+- ✅ Email válido (regex)
+- ✅ Telefone brasileiro
+- ✅ Senha forte (4 dígitos)
+- ✅ Limite de tentativas
+- ✅ Verificação de saldo
+- ✅ Controle de limites diários
+
+### Proteções
+- 🔒 Autenticação obrigatória
+- 🛡️ Validação de dados de entrada
+- 📊 Controle de transações
+- ⏰ Limites temporais
+
+## 📈 Melhorias Futuras Sugeridas
+
+1. **Criptografia de Senhas**
+   - Hash bcrypt para senhas
+   - Salt único por usuário
+
+2. **Logs de Auditoria**
+   - Registro de todas as operações
+   - Logs de segurança
+
+3. **Interface Web**
+   - API REST
+   - Interface gráfica
+
+4. **Banco de Dados**
+   - SQLite/PostgreSQL
+   - Migrations
+
+5. **Notificações**
+   - Email de confirmação
+   - SMS de transações
+
+6. **Relatórios**
+   - Extrato em PDF
+   - Relatórios mensais
+
+## 🤝 Contribuição
+
+Para contribuir com melhorias:
+
+1. Fork o projeto
+2. Crie uma branch para sua feature
+3. Implemente as melhorias
+4. Teste todas as funcionalidades
+5. Submeta um pull request
+
+## 📄 Licença
+
+Este projeto é de uso educacional e demonstração de conceitos de programação Python.
+
+---
+
+**Desenvolvido com ❤️ para aprendizado de Python e boas práticas de desenvolvimento.**
